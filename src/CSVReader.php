@@ -4,6 +4,7 @@ namespace jensostertag\CSVReader;
 
 class CSVReader {
     private $file = null;
+    private bool $header = false;
     private ?int $maxLength = null;
     private string $delimiter = ",";
     private array $data = [];
@@ -15,6 +16,16 @@ class CSVReader {
      */
     public function setFile($file): CSVReader {
         $this->file = $file;
+        return $this;
+    }
+
+    /**
+     * State whether the CSV File has a Header Column
+     * @param bool $header
+     * @return $this Self
+     */
+    public function setHeader(bool $header): CSVReader {
+        $this->header = $header;
         return $this;
     }
 
