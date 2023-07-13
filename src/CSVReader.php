@@ -77,6 +77,13 @@ class CSVReader {
     public function read(): CSVReader {
         if($this->file !== null) {
             $csvHandle = fopen($this->file, "r");
+
+            // Skip Header
+            if($this->header) {
+                fgetcsv($csvHandle, $this->maxLength, $this->delimiter);
+            }
+
+            // Read Data
             while(($data = fgetcsv($csvHandle, $this->maxLength, $this->delimiter)) !== false) {
                 $this->data[] = $data;
             }
