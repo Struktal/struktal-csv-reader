@@ -21,6 +21,7 @@ $csvReader = new CSVReader();
 
 // CSV Reader Options
 $csvReader->setFile("path/to/file.csv")
+          ->setHeader(false)
           ->setDelimiter(";")
           ->setMaxLineLength(null)
           ->read();
@@ -28,19 +29,56 @@ $csvReader->setFile("path/to/file.csv")
 // Get the CSV Data
 $data = $csvReader->getData();
 ```
+You can use the `setHeader(bool $header)` method to specify whether the CSV file contains a header or not. If the method is called with `true` as parameter, the first row will be skipped and not returned in the `$data` array. By default, no header is assumed.
 
 Instead of explicitly setting the delimiter, you can also use the `detectDelimiter()` method. This method uses the first line of the CSV file to detect which character of `,`, `;`, `\t` or `|` occurs most often and uses it as the delimiter.
 > Warning: If the first line of the CSV file contains `,`, `;`, `\t` or `|` more often than the actual delimiter, the method will not detect the correct delimiter. 
 
 As an example, if the CSV file looks like this:
 ```csv
+name;age;city
 Alice;25;New York
 Bob;30;London
 Charlie;20;Berlin
 David;35;Paris
 Frank;40;Tokyo
 ```
-with the values standing for name, age and city, the returned `$data` array would be:
+the returned `$data` array would be:
+```php
+[
+    [
+        "name",
+        "age",
+        "city"
+    ],
+    [
+        "Alice",
+        "25",
+        "New York"
+    ],
+    [
+        "Bob",
+        "30",
+        "London"
+    ],
+    [
+        "Charlie",
+        "20",
+        "Berlin"
+    ],
+    [
+        "David",
+        "35",
+        "Paris"
+    ],
+    [
+        "Frank",
+        "40",
+        "Tokyo"
+    ]
+]
+```
+If you'd call the `setHeader(bool $header)` method with `true` as parameter, the contents of the first row will be omitted from the `$data` array:
 ```php
 [
     [
