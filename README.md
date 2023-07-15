@@ -1,4 +1,4 @@
-# PHP-CSVReader
+# CSVReader for PHP
 This is a PHP library to easily read CSV files. 
 
 ## Installation
@@ -6,7 +6,7 @@ To install this library, include it in your project using composer:
 ```json
 {
     "require": {
-        "jensostertag/php-csvreader": "dev-main"
+        "jensostertag/csvreader": "1.0.0"
     }
 }
 ```

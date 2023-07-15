@@ -1,6 +1,6 @@
 {
-  "name": "jensostertag/php-csvreader",
-  "description": "A PHP CSV Reader Lobrary",
+  "name": "jensostertag/csvreader",
+  "description": "A CSV Reader Library for PHP",
   "keywords": [
     "curl",
     "wrapper"
