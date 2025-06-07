@@ -1,6 +1,6 @@
 <?php
 
-namespace jensostertag\CSVReader;
+namespace struktal\CSVReader;
 
 class CSVReader {
     private $file = null;

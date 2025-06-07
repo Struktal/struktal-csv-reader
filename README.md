@@ -6,7 +6,7 @@ To install this library, include it in your project using composer:
 ```json
 {
     "require": {
-        "jensostertag/csvreader": "1.0.0"
+        "struktal/csvreader": "1.0.0"
     }
 }
 ```
