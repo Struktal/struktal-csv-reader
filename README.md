@@ -3,12 +3,8 @@ This is a PHP library to easily read CSV files.
 
 ## Installation
 To install this library, include it in your project using composer:
-```json
-{
-    "require": {
-        "struktal/csvreader": "1.0.0"
-    }
-}
+```shell
+composer require struktal/struktal-csv-reader
 ```
 
 ## Usage

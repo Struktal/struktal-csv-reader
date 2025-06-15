@@ -1,6 +1,6 @@
 {
-  "name": "struktal/csvreader",
-  "description": "A CSV reader library for PHP",
+  "name": "struktal/struktal-csv-reader",
+  "description": "CSV reader library for PHP",
   "keywords": [
     "csv",
     "reader",
