@@ -61,7 +61,7 @@ class CSVReader {
             $firstLine = fgets($handle);
             fclose($handle);
             foreach($delimiters as $delimiter => &$count) {
-                $count = sizeof(str_getcsv($firstLine, $delimiter, "\\"));
+                $count = sizeof(str_getcsv($firstLine, $delimiter, "\"", "\\"));
             }
 
             $this->delimiter = array_search(max($delimiters), $delimiters);
@@ -80,11 +80,11 @@ class CSVReader {
 
             // Skip Header
             if($this->header) {
-                fgetcsv($csvHandle, $this->maxLength, $this->delimiter, "\\");
+                fgetcsv($csvHandle, $this->maxLength, $this->delimiter, "\"", "\\");
             }
 
             // Read Data
-            while(($data = fgetcsv($csvHandle, $this->maxLength, $this->delimiter, "\\")) !== false) {
+            while(($data = fgetcsv($csvHandle, $this->maxLength, $this->delimiter, "\"", "\\")) !== false) {
                 $this->data[] = $data;
             }
         }
